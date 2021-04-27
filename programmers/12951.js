@@ -1,0 +1,2 @@
+// https://programmers.co.kr/learn/courses/30/lessons/12951?language=javascript
+const solution = s => s.toLowerCase().split('').map((v, i) => v = (s[i - 1] === ' ' || i === 0) ? v.toUpperCase() : v).join('')
