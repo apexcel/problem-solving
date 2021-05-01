@@ -3,14 +3,14 @@
  * @param {number[]} arr
  * @return {number}
  */
-var sumOddLengthSubarrays = function(arr) {
+function sumOddLengthSubarrays(arr) {
     let sum = 0;
     for (let i = 1; i <= arr.length; i += 2) {
         for (let j = 0; j + i <= arr.length; j += 1) {
             sum += arr.slice(j, j+i).reduce((acc, cur) => acc + cur);
         }
     }
-    console.log(sum)
+    console.log(sum);
     return sum;
 };
 
