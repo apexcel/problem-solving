@@ -22,6 +22,7 @@ function maxIncreaseKeepingSkyline(grid) {
             sum += Math.min(axis[y][0], axis[x][1]) - grid[y][x];
         }
     }
+    console.log(sum);
     return sum;
 };
 

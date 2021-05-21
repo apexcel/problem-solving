@@ -15,3 +15,5 @@ function maxIceCream(costs, coins) {
     }
     return i;
 };
+
+console.log(maxIceCream([1, 6, 3, 1, 2, 5], 20))
