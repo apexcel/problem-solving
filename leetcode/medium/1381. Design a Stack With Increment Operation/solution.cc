@@ -19,7 +19,9 @@ public:
     
     int pop() {
         if (stack.size() == 0) return -1;
+        int last = stack[stack.size() - 1];
         stack.pop_back();
+        return last;
     }
     
     void increment(int k, int val) {
