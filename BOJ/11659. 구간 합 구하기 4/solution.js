@@ -1,3 +1,4 @@
+// https://www.acmicpc.net/problem/11659
 const sc = require('fs').readFileSync('/dev/stdin').toString().split('\n');
 const parse = str => str.split(' ').map(n => parseInt(n));
 const [n, m] = parse(sc[0]);
