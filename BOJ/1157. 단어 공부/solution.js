@@ -1,4 +1,3 @@
-// https://www.acmicpc.net/problem/1157
 const s = require('fs').readFileSync('/dev/stdin').toString().toUpperCase().trim();
 const a = Array(26).fill(0);
 let p = 0, m = 0, idx = 0;

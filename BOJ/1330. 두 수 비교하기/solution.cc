@@ -1,4 +1,3 @@
-// https://www.acmicpc.net/problem/1330
 #include <iostream>
 
 using namespace std;

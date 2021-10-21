@@ -1,4 +1,3 @@
-// https://www.acmicpc.net/problem/1316
 const query = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let cnt = 0;
 
