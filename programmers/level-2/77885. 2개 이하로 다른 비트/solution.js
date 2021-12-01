@@ -6,15 +6,15 @@
  */
 function solution(numbers) {
     return numbers.map(n => {
-        const res = fn(BigInt(n)).toString();
+        const res = fn(n).toString();
         return parseInt(res, 10);
     });
 }
 
 function fn(n) {
-    if (BigInt(n) % 2n === 0n) return BigInt(n + 1n);
-    const zero = BigInt(~n) & BigInt(n + 1n);
-    return BigInt((BigInt(n) | zero) & ~(zero >> 1n));
+    if (n % 2 === 0) return BigInt(n + 1);
+    const zero = ~n & (n + 1);
+    return BigInt((n | zero) & ~(zero >> 1));
 }
 
 console.log(solution([5,6,7,8,9,10,11]))

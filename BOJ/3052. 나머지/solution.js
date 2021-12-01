@@ -1,0 +1,1 @@
+console.log(new Set(require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(v => (+v) % 42)).size);
