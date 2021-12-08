@@ -1,0 +1,1 @@
+console.log(Math.max(...require('fs').readFileSync('/dev/stdin').toString().trim().split(' ').map(v => +Array.from(v).reverse().join(''))));
