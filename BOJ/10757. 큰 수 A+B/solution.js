@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('/dev/stdin').toString().trim().split(' ').reduce((a, c) => a + BigInt(c), 0n).toString());
