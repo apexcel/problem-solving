@@ -1,0 +1,1 @@
+console.log(~~require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').reduce((sum, val) => sum += +val >= 40 ? +val : 40, 0) / 5);
