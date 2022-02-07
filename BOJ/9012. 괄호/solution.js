@@ -1,16 +1,16 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [n, ...parentheses] = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let res = '';
 
 const isValidParenthesis = ps => {
-    const stack = [];
+    let cnt = 0;
     for (let i = 0; i < ps.length; i += 1) {
-        if (ps[i] === '(') stack.push(1);
+        if (ps[i] === '(') cnt += 1;
         else {
-            if (!stack.length) return false;
-            stack.pop();
+            if (!cnt) return false;
+            cnt -= 1;
         }
     }
-    return !stack.length;
+    return !cnt;
 };
-input.slice(1).forEach(ps => res += (isValidParenthesis(ps) ? 'YES' : 'NO') + '\n');
+parentheses.forEach(ps => res += (isValidParenthesis(ps) ? 'YES' : 'NO') + '\n');
 console.log(res);
