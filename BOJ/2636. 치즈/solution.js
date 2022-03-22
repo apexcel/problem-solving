@@ -13,7 +13,7 @@ const isValidPosition = (x, y) => y >= 0 && x >= 0 && y < h && x < w;
 
 const isUnabledValue = (x, y) => board[y][x] > 1;
 
-const bfs = (x, y) => {
+const dfs = (x, y) => {
     if (board[y][x] === 0) board[y][x] = 3;
     if (board[y][x] === 1) {
         board[y][x] = 2;
@@ -23,7 +23,7 @@ const bfs = (x, y) => {
     for (let [dx, dy] of dir) {
         const nx = x + dx, ny = y + dy;
         if (isValidPosition(nx, ny) && !isUnabledValue(nx, ny)) {
-            bfs(nx, ny);
+            dfs(nx, ny);
         }
     }
 }
@@ -41,7 +41,7 @@ const recursive = () => {
     if (board.some(b => b.includes(1))) {
         repeat += 1;
         cnt = board.reduce((acc, cur) => acc + cur.filter(v => v === 1).length, 0);
-        bfs(0, 0);
+        dfs(0, 0);
         convert();
         recursive();
     }

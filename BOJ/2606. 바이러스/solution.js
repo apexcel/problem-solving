@@ -7,7 +7,7 @@ input.slice(2).forEach(pair => {
     graph[to].push(from);
 });
 
-const bfs = () => {
+const dfs = () => {
     const q = [graph[1]];
     let cnt = 0;
     while (q.length) {
@@ -23,4 +23,4 @@ const bfs = () => {
     console.log(cnt - 1);
 }
 
-bfs();
+dfs();

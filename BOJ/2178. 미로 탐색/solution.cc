@@ -8,7 +8,7 @@ int h, w, visited[101][101], dist[101][101];
 int dir[4][2] = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
 string board[101];
 
-void bfs() {
+void dfs() {
     visited[0][0] = 1;
     queue<pair<int, int>> q;
     q.push(make_pair(0, 0));
@@ -40,7 +40,7 @@ int main() {
         cin >> board[y];
     }
 
-    bfs();
+    dfs();
 
     return 0;
 }
