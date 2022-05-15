@@ -19,7 +19,7 @@ class Heap {
         const heap = this.getHeap();
         const len = Math.floor(heap.length / 2);
         for (let i = len; i >= 0; i -= 1) {
-            this.#heapify();
+            this.#heapify(i);
         }
     }
 

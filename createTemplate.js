@@ -30,7 +30,7 @@ const main = async () => {
 
     await promises.mkdir(basePath);
     await promises.writeFile(path.resolve(basePath, './README.md'), template);
-    await promises.writeFile(path.resolve(basePath, './solution.js'), `const input = require('fs').readFileSync('/dev/stdin').toString()`);
+    await promises.writeFile(path.resolve(basePath, './solution.js'), `const data = require('fs').readFileSync('/dev/stdin').toString().trim();`);
 
     process.exit(0);
 };

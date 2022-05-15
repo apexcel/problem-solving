@@ -1,19 +1,30 @@
-/** 
- * https://programmers.co.kr/learn/courses/30/lessons/12978
- * @param {number} N 
- * @param {number[][]} road 
- * @param {number} K 
- * @returns {number}
- */
-function solution(N, road, K) {
-    const q = [road[0]];
-    let count = 0;
+function solution(N, roads, K) {
+    const INF = 987654321;
+    const adjMat = Array.from(Array(N + 1), () => Array(N + 1).fill(INF));
 
-    while (q.length > 0) {
-        const [from, to, weight] = q.shift();
-
-        for (let i = 0; i < )
+    for (let i = 0; i <= N; i += 1) {
+        adjMat[i][i] = 0;
     }
+
+    roads.forEach(([src, dest, weight]) => {
+        adjMat[src][dest] = Math.min(adjMat[src][dest], weight);
+        adjMat[dest][src] = Math.min(adjMat[dest][src], weight);
+    })
+
+    for (let k = 1; k <= N; k += 1) {
+        for (let i = 1; i <= N; i += 1) {
+            for (let j = 1; j <= N; j += 1) {
+                adjMat[i][j] = Math.min(adjMat[i][j], adjMat[i][k] + adjMat[k][j]);
+            }
+        }
+    }
+
+    console.table(adjMat)
+
+    const ret = adjMat[1].filter(v => v <= K).length;
+    console.log(ret)
+    return ret;
 }
 
-// 플로이드 와샬로 풀어보기
+// solution(5, [[1, 2, 1], [2, 3, 3], [5, 2, 2], [1, 4, 2], [5, 3, 1], [5, 4, 2]], 3)
+solution(6, [[1, 2, 1], [1, 3, 2], [2, 3, 2], [3, 4, 3], [3, 5, 2], [3, 5, 3], [5, 6, 1]], 4)
