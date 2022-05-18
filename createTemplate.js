@@ -1,4 +1,5 @@
 const { promises } = require('fs');
+const { spawn } = require('child_process');
 const path = require('path');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -32,6 +33,7 @@ const main = async () => {
     await promises.writeFile(path.resolve(basePath, './README.md'), template);
     await promises.writeFile(path.resolve(basePath, './solution.js'), `const data = require('fs').readFileSync('/dev/stdin').toString().trim();`);
 
+    spawn('code', [basePath]);
     process.exit(0);
 };
 
